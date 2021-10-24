@@ -30,22 +30,22 @@ sysctl -w net.ipv6.conf.all.forwarding=1
 # Configure VNFs
 cd ~/
 rm -rf srv6_Sandbox/
-git clone https://github.com/ljm625/srv6_Sandbox
+git clone https://github.com/ljm625/srv6_Sandbox.git
 cd srv6_Sandbox/config/
 sh deploy-vnf-v4.sh add snort veth0 veth1 192.168.1.1/24 192.168.2.1/24 192.168.1.2/24 192.168.2.2/24
 
 # Install Snort
 cd ~/
-wget https://snort.org/downloads/snort/daq-2.0.6.tar.gz
-wget https://snort.org/downloads/snort/snort-2.9.12.tar.gz
+wget https://snort.org/downloads/snort/daq-2.0.7.tar.gz
+wget https://snort.org/downloads/snort/snort-2.9.18.1.tar.gz
 
-tar xvzf daq-2.0.6.tar.gz
-cd daq-2.0.6
+tar xvzf daq-2.0.7.tar.gz
+cd daq-2.0.7
 ./configure && make && sudo make install
 
 cd ~/
-tar xvzf snort-2.9.12.tar.gz
-cd snort-2.9.12
+tar xvzf snort-2.9.18.1.tar.gz
+cd snort-2.9.18.1
 ./configure --enable-sourcefire --disable-open-appid && make && sudo make install
 
 # Update shared libraries (mandatory according to Snort documentation)
@@ -54,7 +54,7 @@ sudo ldconfig
 
 # Install and configure srext (SR proxy)
 cd ~/
-git clone https://github.com/SRouting/SRv6-net-prog
+git clone https://github.com/SRouting/SRv6-net-prog.git
 cd SRv6-net-prog/srext/
 make && make install && depmod -a && modprobe srext
 
