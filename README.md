@@ -30,7 +30,7 @@ The install guide is base on Ubuntu 18.04 LTS version
 3. Install Mininet and Quagga
    ```bash
    apt-get install mininet gawk libreadline-dev libc-ares-dev
-   wget http://download.savannah.gnu.org/releases/quagga/quagga-1.2.4.tar.gz
+   wget https://github.com/Quagga/quagga/releases/download/quagga-1.2.4/quagga-1.2.4.tar.gz
    tar -xzvf ./quagga-1.2.4.tar.gz
    cd ./quagga-1.2.4
    ./configure --enable-vtysh --enable-user=root --enable-group=root --enable-vty-group=root
