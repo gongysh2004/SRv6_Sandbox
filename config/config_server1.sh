@@ -36,16 +36,17 @@ sh deploy-vnf-v4.sh add snort veth0 veth1 192.168.1.1/24 192.168.2.1/24 192.168.
 
 # Install Snort
 cd ~/
+https://snort.org/downloads/snort/snort-2.9.20.tar.gz
 wget https://snort.org/downloads/snort/daq-2.0.7.tar.gz
-wget https://snort.org/downloads/snort/snort-2.9.18.1.tar.gz
+wget https://snort.org/downloads/snort/snort-2.9.20.tar.gz
 
 tar xvzf daq-2.0.7.tar.gz
 cd daq-2.0.7
 ./configure && make && sudo make install
 
 cd ~/
-tar xvzf snort-2.9.18.1.tar.gz
-cd snort-2.9.18.1
+tar xvzf snort-2.9.20.tar.gz
+cd snort-2.9.20
 ./configure --enable-sourcefire --disable-open-appid && make && sudo make install
 
 # Update shared libraries (mandatory according to Snort documentation)
