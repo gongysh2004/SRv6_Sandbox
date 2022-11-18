@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
 		hosta.vm.provider "libvirt" do |v|
 			v.memory = "256"
 		end
+                hosta.vm.hostname = "hosta"
 		hosta.vm.provision "shell", path: "config/config_a.sh"
         end
         
@@ -22,6 +23,7 @@ Vagrant.configure("2") do |config|
 		hostb.vm.provider "libvirt" do |v|
 			v.memory = "256"
 		end
+                hostb.vm.hostname = "hostb"
 		hostb.vm.provision "shell", path: "config/config_b.sh"
         end
         
@@ -43,6 +45,7 @@ Vagrant.configure("2") do |config|
 			libvirt.memory = "256"
 
 		end
+                r1.vm.hostname = "r1"
 		r1.vm.provision "shell", path: "config/config_r1.sh"
 	end
 
@@ -77,6 +80,7 @@ Vagrant.configure("2") do |config|
 			libvirt.memory = "256"
 			libvirt.cpus = "1"
 		end
+                r2.vm.hostname = "r2"
 		r2.vm.provision "shell", path: "config/config_r2.sh"
 	end
 
@@ -104,6 +108,7 @@ Vagrant.configure("2") do |config|
 			libvirt.memory = "256"
 
                 end
+                r3.vm.hostname = "r3"
 	        r3.vm.provision "shell", path: "config/config_r3.sh"
         end
         # server1 configuration
@@ -121,6 +126,7 @@ Vagrant.configure("2") do |config|
                 server1.vm.provider "libvirt" do |libvirt|
 			libvirt.memory = "256"
                 end
+                server1.vm.hostname = "server1"
 		server1.vm.provision "shell", path: "config/config_server1.sh"
         end
 
@@ -139,6 +145,7 @@ Vagrant.configure("2") do |config|
                 server2.vm.provider "libvirt" do |libvirt|
 			libvirt.memory = "256"
                 end
+                server2.vm.hostname = "server2"
 	        server2.vm.provision "shell", path: "config/config_server2.sh"
         end
 end
